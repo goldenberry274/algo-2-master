@@ -134,6 +134,19 @@ export const topics = [
           
         ],
       },
+      {
+        question: "Prove: Let G := (X ∪· Y, E) be a bipartite graph satisfying |NG(S)| ≥ |S| − d for every S ⊆ X for some d ∈ N. Then, G has a matching covering all but at most d members of X.",
+        solutionImages: [
+          "/images/matchings-in-graphs/hall_extentions_1.png",
+        ],
+      },
+      {
+        question: "Let G := (X ∪· Y, E) be a bipartite graph and let r ∈ N. We say that X is K1,r-saturated in G if there exists a collection of vertex-disjoint copies of K1,r in G such that each vertex in X serves as the centre vertex of one of the copies. If r = 1, then the definition coincides with that of a matching saturating X. " + "\nProve: Let G := (X ∪· Y, E) be a bipartite graph and let r ∈ N. X is K1,r-saturated in G ⇐⇒ ∀S ⊆ X : |NG(S)| ≥ r|S|.",
+        solutionImages: [
+          "/images/matchings-in-graphs/hall_extentions_2.png",
+          
+        ],
+      },
     ],
   },
   {
