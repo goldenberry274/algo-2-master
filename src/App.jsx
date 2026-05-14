@@ -47,18 +47,32 @@ function MainPage({ onSelectTopic, onStartTimeTrial }) {
 }
 
 function TimeTrialPage({ onBack }) {
-  const [questionAmount, setQuestionAmount] = useState(1);
-  const [trialProblems, setTrialProblems] = useState([]);
-  const [timeLeft, setTimeLeft] = useState(0);
+  const [trialTopics, setTrialTopics] = useState([]);
+  const [timeLeft, setTimeLeft] = useState(4 * 60 * 60);
   const [trialStarted, setTrialStarted] = useState(false);
   const [trialFinished, setTrialFinished] = useState(false);
 
   function startTrial() {
-    const allProblems = getAllProblems();
-    const selected = shuffleArray(allProblems).slice(0, questionAmount);
+    const topicsWithProblems = topics.filter(
+      (topic) => topic.problems && topic.problems.length > 0
+    );
 
-    setTrialProblems(selected);
-    setTimeLeft(questionAmount * 60 * 60);
+    const selectedTopics = shuffleArray(topicsWithProblems)
+      .slice(0, 4)
+      .map((topic) => {
+        const questionAmount = Math.min(
+          topic.problems.length,
+          Math.floor(Math.random() * 2) + 3
+        );
+
+        return {
+          ...topic,
+          selectedProblems: shuffleArray(topic.problems).slice(0, questionAmount),
+        };
+      });
+
+    setTrialTopics(selectedTopics);
+    setTimeLeft(4 * 60 * 60);
     setTrialStarted(true);
     setTrialFinished(false);
   }
@@ -100,23 +114,9 @@ function TimeTrialPage({ onBack }) {
       {!trialStarted && (
         <div className="trial-setup">
           <p className="intro">
-            This page is meant to simulate an exam with limited time. Choose the number of questions you want to prepare on, then start the trial.
-            <br />
-            Solutions will only be revelaed either once the timer runs out, or the "I am done with the questions button" is clicked.
+            This mode picks 4 random topics. From each topic, it gives you 3–4
+            random questions. You get 4 hours total.
           </p>
-
-          <label className="trial-label">
-            Number of questions:
-            <select
-              value={questionAmount}
-              onChange={(e) => setQuestionAmount(Number(e.target.value))}
-            >
-              <option value={1}>1 question</option>
-              <option value={2}>2 questions</option>
-              <option value={3}>3 questions</option>
-              <option value={4}>4 questions</option>
-            </select>
-          </label>
 
           <button className="time-trial-button" onClick={startTrial}>
             Start Trial
@@ -128,6 +128,7 @@ function TimeTrialPage({ onBack }) {
         <>
           <div className="timer-box">
             <h2>Time Left</h2>
+
             <div className="timer">
               {String(hours).padStart(2, "0")}:
               {String(minutes).padStart(2, "0")}:
@@ -135,42 +136,56 @@ function TimeTrialPage({ onBack }) {
             </div>
           </div>
 
+          <div className="trial-controls">
           {!trialFinished && (
             <button className="finish-button" onClick={finishTrial}>
               I am done with all questions
             </button>
           )}
 
+            <button className="restart-button" onClick={startTrial}>
+              Restart Trial
+            </button>
+          </div>
+
           {trialFinished && (
-            <p className="solution-unlocked">
-              Solutions are now unlocked.
-            </p>
+            <p className="solution-unlocked">Solutions are now unlocked.</p>
           )}
 
-          <div className="problems">
-            {trialProblems.map((problem, index) => (
-              <div className="problem-card" key={index}>
-                <h2>Question {index + 1}</h2>
-                <p className="topic-name">{problem.topicTitle}</p>
+          <div className="trial-topics">
+            {trialTopics.map((topic, topicIndex) => (
+              <div className="trial-topic-section" key={topic.id}>
+                <h2>
+                  Topic {topicIndex + 1}: {topic.title}
+                </h2>
 
-                <p className="problem-text">{problem.question}</p>
+                <div className="problems">
+                  {topic.selectedProblems.map((problem, problemIndex) => (
+                    <div className="problem-card" key={problemIndex}>
+                      <h3>Question {problemIndex + 1}</h3>
 
-                {trialFinished ? (
-                  <div className="solutions-container">
-                    {problem.solutionImages.map((image, imgIndex) => (
-                      <img
-                        key={imgIndex}
-                        className="solution-image"
-                        src={image}
-                        alt={`Solution ${imgIndex + 1}`}
-                      />
-                    ))}
-                  </div>
-                ) : (
-                  <p className="locked-solution">
-                    Solution locked until the timer ends or you finish the trial.
-                  </p>
-                )}
+                      <p className="problem-text">{problem.question}</p>
+
+                      {trialFinished ? (
+                        <div className="solutions-container">
+                          {problem.solutionImages.map((image, imgIndex) => (
+                            <img
+                              key={imgIndex}
+                              className="solution-image"
+                              src={image}
+                              alt={`Solution ${imgIndex + 1}`}
+                            />
+                          ))}
+                        </div>
+                      ) : (
+                        <p className="locked-solution">
+                          Solution locked until the timer ends or you finish the
+                          trial.
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

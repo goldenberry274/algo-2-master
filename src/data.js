@@ -221,7 +221,7 @@ export const topics = [
         ]
       },
       {
-        question: "lemma . Let D be a strict digraph, and let P be an (x, y)-directed path in D of length` (length is measured in terms of edges). Let v ∈ V (D) \ V (P). \n 1. If there is no directed path P' in D satisfying V (P') = V (P)∪{v}, then deg±P (v) ≤ `+2.\n2. If P is a longest directed path in G, then deg±P(v) ≤ l.",
+        question: "Let D be a strict digraph, and let P be an (x, y)-directed path in D of length l (length is measured in terms of edges). Let v ∈ V (D) \ V (P). \n 1. If there is no directed path P' in D satisfying V (P') = V (P)∪{v}, then deg±P (v) ≤ l+2.\n2. If P is a longest directed path in G, then deg±P(v) ≤ l.",
         solutionImages: [
           "/images/hamiltoniacy/lemma.png",
         ]
@@ -231,16 +231,9 @@ export const topics = [
   {
     id: "graph-coloring",
     title: "Graph Coloring",
-    intro: "Practice problems for Hamiltoniany.",
+    intro: "Practice problems for graph coloring.",
     problems: [
-      {
-        question: "Write the following optimization problem as a linear program...",
-        solutionImage: "/images/lp-solution-1.png",
-      },
-      {
-        question: "Solve the linear program graphically...",
-        solutionImage: "/images/lp-solution-2.png",
-      },
+      
     ],
   },
   {
@@ -248,30 +241,25 @@ export const topics = [
     title: "Linear Programming",
     intro: "Practice problems for linear programming.",
     problems: [
-      {
-        question: "Write the following optimization problem as a linear program...",
-        solutionImage: "/images/lp-solution-1.png",
-      },
-      {
-        question: "Solve the linear program graphically...",
-        solutionImage: "/images/lp-solution-2.png",
-      },
+      
     ],
   },
   {
     id: "approximation-algorithms",
-    title: "Approximation algorithms",
-    intro: "Practice problems for Approximation algorithms.",
+    title: "Approximation Algorithms",
+    intro: "Practice problems for approximation algorithms.",
     problems: [
-      {
-        question: "Write the following optimization problem as a linear program...",
-        solutionImage: "/images/lp-solution-1.png",
-      },
-      {
-        question: "Solve the linear program graphically...",
-        solutionImage: "/images/lp-solution-2.png",
-      },
+      
     ],
   },
+  {
+    id: "random-de-randomization-algorithms",
+    title: "Random Algorithms",
+    intro: "Practice problems for random algorithms.",
+    problems: [
+      
+    ],
+  },
+  
   
 ];
