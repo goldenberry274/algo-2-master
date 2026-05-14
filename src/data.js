@@ -155,13 +155,51 @@ export const topics = [
     intro: "Practice problems for connectivity.",
     problems: [
       {
-        question: "Write the following optimization problem as a linear program...",
-        solutionImage: "/images/lp-solution-1.png",
+        question: "Prove: Let G be connected. Every minimal edge-disconnector forms an edge-cut (S, V (G) \ S) such that both G[S] and G[V (G) \ S] are connected.",
+        solutionImages: [
+          "/images/connectivity/observation_1.png",
+          
+        ],
       },
       {
-        question: "Solve the linear program graphically...",
-        solutionImage: "/images/lp-solution-2.png",
+        question: "Prove: Whitney ’s theorem [64]. Let G be a simple graph. Then, κ(G) ≤ κ'(G) ≤ δ(G).",
+        solutionImages: [
+          "/images/connectivity/whitney.png",
+          
+        ],
       },
+      {
+        question: "Prove: If ∆(G) ≤ 3, then κ(G) = κ'(G).",
+        solutionImages: [
+          "/images/connectivity/proposition_1.png"
+          
+        ],
+      },
+      {
+        question: "Prove: Let G be an n-vertex graph. If δ(G) ≥ n − 2, then κ(G) = δ(G).",
+        solutionImages: [
+          "/images/connectivity/observation_2.png",
+          
+        ],
+      },
+      {
+        question: "Prove: Let G be an n-vertex graph and let 1 ≤ k < n be an integer. If δ(G) ≥ (n + k − 2)/2 then κ(G) ≥ k.",
+        solutionImages: [
+          "/images/connectivity/proposition_2_1.png",
+          "/images/connectivity/proposition_2_2.png",
+
+          
+        ],
+      },
+      {
+        question: "Prove: A connected graph is k-edge-connected if and only if each of its blocks is k-edge-connected.",
+        solutionImages: [
+          "/images/connectivity/proposition_3.png",
+          
+        ],
+      },
+        
+      
     ],
   },
   {
@@ -170,12 +208,23 @@ export const topics = [
     intro: "Practice problems for Hamiltoniany.",
     problems: [
       {
-        question: "Write the following optimization problem as a linear program...",
-        solutionImage: "/images/lp-solution-1.png",
+        question: "Let G be an n-vertex graph with n ≥ 3. \n (a) If e(G) ≥ n−1C2 + 2, then G is Hamiltonian.\n(b) If e(G) ≥n−1C2+ 3, then G is Hamiltonian-connected",
+        solutionImages:[
+          "/images/hamiltoniacy/theorem.png",
+        ]
+
       },
       {
-        question: "Solve the linear program graphically...",
-        solutionImage: "/images/lp-solution-2.png",
+        question: "Rédei’s theorem. Every tournament contains a directed Hamilton path.",
+        solutionImages: [
+          "/images/hamiltoniacy/redei_1.png",
+        ]
+      },
+      {
+        question: "lemma . Let D be a strict digraph, and let P be an (x, y)-directed path in D of length` (length is measured in terms of edges). Let v ∈ V (D) \ V (P). \n 1. If there is no directed path P' in D satisfying V (P') = V (P)∪{v}, then deg±P (v) ≤ `+2.\n2. If P is a longest directed path in G, then deg±P(v) ≤ l.",
+        solutionImages: [
+          "/images/hamiltoniacy/lemma.png",
+        ]
       },
     ],
   },
