@@ -233,7 +233,42 @@ export const topics = [
     title: "Graph Coloring",
     intro: "Practice problems for graph coloring.",
     problems: [
-      
+      {
+        question: "Let G be an n-vertex graph satisfying χ(G) ≤ 3. Then a colouring of G using at O(√n) colours can be found in polynomial time.",
+        solutionImages:[
+          "/images/graph-coloring/3-coloring.png"
+        ]
+      },
+      {
+        question: "Given a set of intervals we'll define an interval graph for them: Every interval will be a vertex and two vertices will be connected if their intervals intersect.\nProve: In an interval graph, 𝚾(𝑮)=𝝎(𝑮) where 𝝎(𝑮) is the maximum clique size, and 𝑿(𝑮) is the chromatic number of G.",
+        solutionImages:[
+          "/images/graph-coloring/interval_coloring.png",
+        ]
+
+      },
+      {
+        question: "Vizing's theorem. χ'(G) ≤ ∆(G) + 1.",
+        solutionImages: [
+          "/images/graph-coloring/vizing_proof.png",
+          "/images/graph-coloring/vising_proof_1.png",
+          "/images/graph-coloring/vising_proof_2.png",
+          "/images/graph-coloring/vising_proof_3.png",
+          "/images/graph-coloring/vising_proof_4.png",
+          "/images/graph-coloring/vising_proof_5.png",
+        ]
+      },
+      {
+        question: "Let G be a graph such that every two odd cycles in it intersect at vertices. Then Χ(𝐺)≤5",
+        solutionImages: [
+          "/images/graph-coloring/no_odd_cycles_coloring.png",
+        ]
+      },
+      {
+        question: "For a graph G, we define the edge graph 𝐿(𝐺) as follows:\n- For each edge, we define a vertex\n- Vertices are connected if their edges have a vertex\nProperties of an edge graph:\n1. 𝚾(𝑳(𝑮))=𝚾^′ (𝑮)\n2. 𝚫(𝑳(𝑮))≤𝟐(𝚫(𝑮)−𝟏)\nWhere 𝑿′(𝑮) is a chromatic number on the edges.\nProve: Given 𝚫(𝑮)=𝟑, 𝚾′ (𝑮)≤𝟒",
+        solutionImages: [
+          "/images/graph-coloring/vising_specific_case.png",
+        ]
+      },
     ],
   },
   {
