@@ -276,7 +276,44 @@ export const topics = [
     title: "Linear Programming",
     intro: "Practice problems for linear programming.",
     problems: [
-      
+      {
+        question: "Formulate a linear program of the maximum matching problem. Hint: Think of a binary vector x that will tell for every edge whether it's in the matching or not.",
+        solutionImages: [
+          "/images/linear-programming/max_matching_linear.png",
+        ]
+      },
+      {
+        question: "Given a flow network, a source and a sink, formulate a linear program of the max flow problem. Hint: Think of the constraints of flow for every edge in the network.",
+        solutionImages: [
+          "/images/linear-programming/flow_network.png",
+        ]
+      },
+      {
+        question: "Given a collection of points in a plane find a line 𝑦=𝑎𝑥+𝑏 that best describes the points. What does 'describe the points' mean? That the sum of the distances of the points from the line is minimal.",
+        solutionImages: [
+          "/images/linear-programming/linear_regression.png",
+        ]
+      },
+      {
+        question: "Given two sets of points in a plane: 𝐴={𝑎_1,𝑎_2,…,𝑎_𝑛 }, 𝐵={𝑏_1,𝑏_2,…,𝑏_𝑚}. Objective: Find a line that separates the points, such that all points from A are above the line, and all points from B are below it.",
+        solutionImages: [
+          "/images/linear-programming/linear_programming_1.png",
+          "/images/linear-programming/linear_programming_2.png",
+        ]
+      },
+      {
+        question: "Formulate a linear program for the max independant set problem.",
+        solutionImages: [
+          "/images/linear-programming/max_independant_set.png",
+        ]
+      },
+      {
+        question: "Formulate a linear program for the max matching problem in a balanced bipartite graph and prove the optimal weight in real numbers is the same as in integers.",
+        solutionImages: [
+          "/images/linear-programming/max_matching_optimal_integer_linear.png",
+          "/images/linear-programming/max_matching_optimal_integer_linear_1.png",
+        ]
+      },
     ],
   },
   {
